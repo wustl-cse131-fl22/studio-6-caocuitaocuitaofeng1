@@ -1,5 +1,5 @@
 package studio6;
-
+import java.util.Arrays;
 import edu.princeton.cs.introcs.StdDraw;
 
 public class RecursiveMethods {
@@ -14,7 +14,13 @@ public class RecursiveMethods {
 	public static double geometricSum(int n) {
 		
 			// FIXME compute the geometric sum for the first n terms recursively
+		if(n==0) {
 			return 0;
+		}
+		else {
+			return Math.pow(0.5, n) + geometricSum(n-1);
+		}
+			
 		
 	}
 
@@ -29,7 +35,13 @@ public class RecursiveMethods {
 	public static int gcd(int p, int q) {
 		
 			// FIXME compute the gcd of p and q using recursion
-			return 0;
+		if(p%q==0) {
+			return q;
+		}
+		else {
+			return gcd (q, p%q);
+		}
+			
 		
 	}
 
@@ -40,11 +52,37 @@ public class RecursiveMethods {
 	 * 
 	 * @param array the array to create a reverse of, not to be mutated
 	 * @return an array with the same data as the input but it reverse order
+	 * 
 	 */
+	public static int[] helpReversed(int[] array, int n, int[]newArray) {
+		if(array.length==0||array.length==1) {
+			newArray=array;
+			 return newArray;
+		 }
+		 if (n==-1) {
+			 return newArray;
+		 }
+		 else {
+			
+			 newArray[n]=array[array.length-n-1];
+			 newArray[array.length-n-1]=array[n];
+			 
+			 return helpReversed(array, n-1, newArray);
+			 
+		 }
+		 
+	}
+	
 	public static int[] toReversed(int[] array) {
 		
 			// FIXME create a helper method that can recursively reverse the given array
-			return new int[0];
+		int [] newArray = new int [array.length];
+		
+		 //else {
+		
+		newArray = helpReversed(array, array.length/2, newArray);
+		return newArray;
+		 //}
 		
 	}
 
@@ -61,6 +99,12 @@ public class RecursiveMethods {
 			double radiusMinimumDrawingThreshold) {
 		
 		// FIXME
+		if ()
+	}
+	public static void main(String[] args) {
+	    int[] test = {1};
+	    System.out.println(Arrays.toString(toReversed(test)));
+	    //System.out.println(Arrays.toString(toReversed(copyOfXs)));
 	}
 
 }

@@ -15,7 +15,7 @@ public class IterativeMethods {
 	public static double geometricSum(int n) {
 		double sum = 0.0;
 		for (int power = 1; power <= n; ++power) {
-			sum = sum + Math.pow(0.5, power);
+			sum = sum + Math.pow(0.5, power)  ;
 		}
 		return sum;
 	}
