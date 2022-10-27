@@ -56,34 +56,34 @@ public class RecursiveMethods {
 	 */
 	public static int[] helpReversed(int[] array, int n, int[]newArray) {
 		if(array.length==0||array.length==1) {
-			newArray=array;
-			 return newArray;
-		 }
+			newArray = array;
+		}
 		 if (n==-1) {
 			 return newArray;
-		 }
+		 }		 
 		 else {
-			
-			 newArray[n]=array[array.length-n-1];
-			 newArray[array.length-n-1]=array[n];
-			 
-			 return helpReversed(array, n-1, newArray);
-			 
-		 }
-		 
+		 newArray[n]=array[array.length-n-1];
+		 newArray[array.length-n-1]=array[n]; 
+		 return helpReversed(array, n-1, newArray);
+		 }	 
+		 		 
 	}
 	
 	public static int[] toReversed(int[] array) {
 		
 			// FIXME create a helper method that can recursively reverse the given array
 		int [] newArray = new int [array.length];
-		
-		 //else {
-		
+		if(array.length==0) {
+			return newArray;
+		}
+		if(array.length==1) {
+			newArray[0] = array[0];		
+		}
+		else {		
 		newArray = helpReversed(array, array.length/2, newArray);
-		return newArray;
-		 //}
 		
+		}
+		return newArray;
 	}
 
 	/**
